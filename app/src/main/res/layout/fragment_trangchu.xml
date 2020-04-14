@@ -14,7 +14,13 @@
             android:id="@+id/fragment_banner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+        </fragment>
 
+        <fragment
+            android:name="com.example.appnhaconline.Fragment.Fragment_Playlist"
+            android:id="@+id/fragment_playlist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         </fragment>
     </LinearLayout>
 
