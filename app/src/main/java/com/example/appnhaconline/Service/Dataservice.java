@@ -1,5 +1,6 @@
 package com.example.appnhaconline.Service;
 
+import com.example.appnhaconline.Model.ChudeTheloai;
 import com.example.appnhaconline.Model.Playlist;
 import com.example.appnhaconline.Model.Quangcao;
 
@@ -15,5 +16,9 @@ public interface Dataservice {
 
     @GET("playlist.php")
     Call<List<Playlist>> GetPlaylistCurrentDay();
+
+    @GET("chudevatheloaitrongngay.php")
+    Call<ChudeTheloai> GetDataChudeTheloai();
+
 
 }
