@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ImageView
         android:scaleType="fitXY"
         android:id="@+id/imageviewbackgoundbanner"
         android:layout_width="match_parent"
-        android:layout_height="200dp">
-    </ImageView>
+        android:layout_height="200dp"></ImageView>
+
     <View
         android:background="@drawable/custom_background_banner"
         android:layout_width="match_parent"
-        android:layout_height="200dp"/>
+        android:layout_height="200dp" />
+
     <RelativeLayout
         android:id="@+id/relative1"
         android:layout_alignBottom="@id/imageviewbackgoundbanner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <ImageView
             android:layout_marginBottom="10dp"
             android:layout_marginRight="10dp"
@@ -25,7 +27,8 @@
             android:id="@+id/imageviewbanner"
             android:padding="2dp"
             android:layout_width="70dp"
-            android:layout_height="70dp"/>
+            android:layout_height="70dp" />
+
         <TextView
             android:text="Khi anh mot minh"
             android:textStyle="bold"
@@ -36,13 +39,15 @@
             android:layout_alignTop="@+id/imageviewbanner"
             android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
+
         <RelativeLayout
             android:layout_toRightOf="@+id/imageviewbanner"
             android:layout_below="@+id/textviewtitlebannerbaihat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="7dp">
+
             <TextView
                 android:id="@+id/textviewnoidung"
                 android:textColor="#fffdfc"
@@ -51,7 +56,7 @@
                 android:layout_marginRight="40dp"
                 android:textSize="13sp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
 
         </RelativeLayout>
 

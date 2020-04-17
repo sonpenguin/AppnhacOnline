@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -9,6 +8,7 @@
         android:id="@+id/relativechudetheloai"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             android:textColor="#111111"
             android:textStyle="bold"
@@ -16,7 +16,8 @@
             android:text="CHỦ ĐỀ và THỂ LOẠI"
             android:id="@+id/textviewtitle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
+
         <TextView
             android:id="@+id/textviewxemthemchudetheloai"
             android:layout_alignParentRight="true"
@@ -24,7 +25,7 @@
             android:textSize="18sp"
             android:text="Xem Thêm"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
     </RelativeLayout>
 
     <HorizontalScrollView
@@ -32,7 +33,6 @@
         android:id="@+id/horizontalScrollview"
         android:layout_below="@+id/relativechudetheloai"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </HorizontalScrollView>
+        android:layout_height="wrap_content"></HorizontalScrollView>
 
 </RelativeLayout>

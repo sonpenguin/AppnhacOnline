@@ -7,12 +7,12 @@
     android:orientation="vertical"
     tools:context=".Activity.MainActivity">
 
-   <androidx.viewpager.widget.ViewPager
-       android:id="@+id/myViewpager"
-       android:layout_width="match_parent"
-       android:layout_height="0dp"
-       android:layout_weight="1">
-   </androidx.viewpager.widget.ViewPager>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/myViewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></androidx.viewpager.widget.ViewPager>
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/myTabLayout"
         app:tabIndicatorColor="#B21CCC"
