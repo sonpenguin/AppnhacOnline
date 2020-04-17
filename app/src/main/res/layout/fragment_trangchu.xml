@@ -30,8 +30,8 @@
         android:layout_height="wrap_content"></fragment>
 
         <fragment
-            android:name="com.example.appnhaconline.Fragment.Fragment_Album"
-            android:id="@+id/fragment_album"
+            android:name="com.example.appnhaconline.Fragment.Fragment_Baihathot"
+            android:id="@+id/fragment_baihathot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></fragment>
     </LinearLayout>
