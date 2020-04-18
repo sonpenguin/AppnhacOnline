@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <RelativeLayout
+        android:padding="7dp"
         android:id="@+id/relativealbum"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

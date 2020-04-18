@@ -16,6 +16,7 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.example.appnhaconline.Activity.DanhsachbaihatActivity;
+import com.example.appnhaconline.Activity.DanhsachtatcachudeActivity;
 import com.example.appnhaconline.Model.ChuDe;
 import com.example.appnhaconline.Model.ChudeTheloai;
 import com.example.appnhaconline.Model.Playlist;
@@ -44,6 +45,13 @@ public class Fragment_Chude_Theloai extends Fragment {
         view = inflater.inflate(R.layout.fragment_chude_theloai,container,false);
         horizontalScrollView = view.findViewById(R.id.horizontalScrollview);
         txtxemthemchudetheloai = view.findViewById(R.id.textviewxemthemchudetheloai);
+        txtxemthemchudetheloai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), DanhsachtatcachudeActivity.class);
+                startActivity(intent);
+            }
+        });
         GetData();
         return view;
     }
