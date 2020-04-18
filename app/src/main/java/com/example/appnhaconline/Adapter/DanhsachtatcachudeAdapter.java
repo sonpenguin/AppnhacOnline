@@ -1,6 +1,7 @@
 package com.example.appnhaconline.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.appnhaconline.Activity.DanhsachtheloaitheochudeActivity;
 import com.example.appnhaconline.Model.ChuDe;
 import com.example.appnhaconline.R;
 import com.squareup.picasso.Picasso;
@@ -48,6 +50,14 @@ public class DanhsachtatcachudeAdapter extends RecyclerView.Adapter<Danhsachtatc
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imgchude = itemView.findViewById(R.id.imageviewdongtatcachude);
+            imgchude.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, DanhsachtheloaitheochudeActivity.class);
+                    intent.putExtra("chude",mangchude.get(getPosition()));
+                    context.startActivity(intent);
+                }
+            });
 
         }
     }
