@@ -42,4 +42,8 @@ public interface Dataservice {
     @GET("danhsachcacplaylist.php")
     Call<List<Playlist>>  GetDanhsachcacplaylist();
 
+    @FormUrlEncoded
+    @POST("danhsachbaihat.php")
+    Call<List<Baihat>> GetDanhsachbaihattheloai(@Field("idtheloai") String idtheloai);
+
 }

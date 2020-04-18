@@ -1,5 +1,6 @@
 package com.example.appnhaconline.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import com.example.appnhaconline.Activity.DanhsachbaihatActivity;
 import com.example.appnhaconline.Model.ChuDe;
 import com.example.appnhaconline.Model.ChudeTheloai;
 import com.example.appnhaconline.Model.Playlist;
@@ -90,6 +92,16 @@ public class Fragment_Chude_Theloai extends Fragment {
                     cardView.setLayoutParams(layout);
                     cardView.addView(imageView);
                     linearLayout.addView(cardView);
+
+                    final int finalJ = j;
+                    imageView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(getActivity(), DanhsachbaihatActivity.class);
+                            intent.putExtra("idtheloai",theLoaiArrayList.get(finalJ));
+                            startActivity(intent);
+                        }
+                    });
                 }
                 horizontalScrollView.addView(linearLayout);
 
