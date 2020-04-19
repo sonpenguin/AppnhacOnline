@@ -1,6 +1,7 @@
 package com.example.appnhaconline.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.appnhaconline.Activity.PlaynhacActivity;
 import com.example.appnhaconline.Model.Baihat;
 import com.example.appnhaconline.R;
 import com.example.appnhaconline.Service.APIService;
@@ -62,6 +64,14 @@ public class BaihathotAdapter extends RecyclerView.Adapter<BaihathotAdapter.View
             txtcasi = itemView.findViewById(R.id.textviewtencasibaihathot);
             imghinh = itemView.findViewById(R.id.imageviewbaihathot);
             imgluotthich = itemView.findViewById(R.id.imageviewluotthich);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, PlaynhacActivity.class);
+                    intent.putExtra("cakhuc",baihatArrayList.get(getPosition()));
+                    context.startActivity(intent);
+                }
+            });
             imgluotthich.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

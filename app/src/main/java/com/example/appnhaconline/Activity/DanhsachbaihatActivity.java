@@ -54,6 +54,7 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
     Playlist playlist;
     TheLoai theLoai;
     Album album;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,20 +62,20 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
         DataIntent();
         anhxa();
         init();
-        if(quangcao != null && !quangcao.getTenBaiHat().equals("")){
-            setValueInView(quangcao.getTenBaiHat(),quangcao.getHinhBaiHat());
+        if (quangcao != null && !quangcao.getTenBaiHat().equals("")) {
+            setValueInView(quangcao.getTenBaiHat(), quangcao.getHinhBaiHat());
             GetDataQuangcao(quangcao.getIdQuangCao());
         }
-        if(playlist != null && !playlist.getTenPlaylist().equals("")){
+        if (playlist != null && !playlist.getTenPlaylist().equals("")) {
             setValueInView(playlist.getTenPlaylist(), playlist.getHinhicon());
             GetDataPlaylist(playlist.getIdPlaylist());
         }
-        if(theLoai != null && !theLoai.getTenTheloai().equals("")){
-            setValueInView(theLoai.getTenTheloai(),theLoai.getHinhTheloai());
+        if (theLoai != null && !theLoai.getTenTheloai().equals("")) {
+            setValueInView(theLoai.getTenTheloai(), theLoai.getHinhTheloai());
             GetDataTheloai(theLoai.getIdTheloai());
         }
-        if(album != null && !album.getTenAlbum().equals("")){
-            setValueInView(album.getTenAlbum(),album.getHinhAlbum());
+        if (album != null && !album.getTenAlbum().equals("")) {
+            setValueInView(album.getTenAlbum(), album.getHinhAlbum());
             GetDataAlbum(album.getIdAlbum());
         }
     }
@@ -86,9 +87,10 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Baihat>> call, Response<List<Baihat>> response) {
                 mangbaihat = (ArrayList<Baihat>) response.body();
-                danhsachbaihatAdapter = new DanhsachbaihatAdapter(DanhsachbaihatActivity.this,mangbaihat);
+                danhsachbaihatAdapter = new DanhsachbaihatAdapter(DanhsachbaihatActivity.this, mangbaihat);
                 recyclerViewdanhsachbaihat.setLayoutManager(new LinearLayoutManager(DanhsachbaihatActivity.this));
                 recyclerViewdanhsachbaihat.setAdapter(danhsachbaihatAdapter);
+                eventClick();
             }
 
             @Override
@@ -99,16 +101,17 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
 
     }
 
-    private void GetDataTheloai(String idtheloai){
+    private void GetDataTheloai(String idtheloai) {
         Dataservice dataservice = APIService.getService();
         Call<List<Baihat>> callback = dataservice.GetDanhsachbaihattheloai(idtheloai);
         callback.enqueue(new Callback<List<Baihat>>() {
             @Override
             public void onResponse(Call<List<Baihat>> call, Response<List<Baihat>> response) {
                 mangbaihat = (ArrayList<Baihat>) response.body();
-                danhsachbaihatAdapter = new DanhsachbaihatAdapter(DanhsachbaihatActivity.this,mangbaihat);
+                danhsachbaihatAdapter = new DanhsachbaihatAdapter(DanhsachbaihatActivity.this, mangbaihat);
                 recyclerViewdanhsachbaihat.setLayoutManager(new LinearLayoutManager(DanhsachbaihatActivity.this));
                 recyclerViewdanhsachbaihat.setAdapter(danhsachbaihatAdapter);
+                eventClick();
             }
 
             @Override
@@ -125,9 +128,10 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Baihat>> call, Response<List<Baihat>> response) {
                 mangbaihat = (ArrayList<Baihat>) response.body();
-                danhsachbaihatAdapter = new DanhsachbaihatAdapter(DanhsachbaihatActivity.this,mangbaihat);
+                danhsachbaihatAdapter = new DanhsachbaihatAdapter(DanhsachbaihatActivity.this, mangbaihat);
                 recyclerViewdanhsachbaihat.setLayoutManager(new LinearLayoutManager(DanhsachbaihatActivity.this));
                 recyclerViewdanhsachbaihat.setAdapter(danhsachbaihatAdapter);
+                eventClick();
             }
 
             @Override
@@ -144,10 +148,11 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
         callback.enqueue(new Callback<List<Baihat>>() {
             @Override
             public void onResponse(Call<List<Baihat>> call, Response<List<Baihat>> response) {
-                 mangbaihat = (ArrayList<Baihat>) response.body();
-                 danhsachbaihatAdapter = new DanhsachbaihatAdapter(DanhsachbaihatActivity.this,mangbaihat);
-                 recyclerViewdanhsachbaihat.setLayoutManager(new LinearLayoutManager(DanhsachbaihatActivity.this));
-                 recyclerViewdanhsachbaihat.setAdapter(danhsachbaihatAdapter);
+                mangbaihat = (ArrayList<Baihat>) response.body();
+                danhsachbaihatAdapter = new DanhsachbaihatAdapter(DanhsachbaihatActivity.this, mangbaihat);
+                recyclerViewdanhsachbaihat.setLayoutManager(new LinearLayoutManager(DanhsachbaihatActivity.this));
+                recyclerViewdanhsachbaihat.setAdapter(danhsachbaihatAdapter);
+                eventClick();
             }
 
             @Override
@@ -163,7 +168,7 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
         try {
             URL url = new URL(hinh);
             Bitmap bitmap = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-            BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(),bitmap);
+            BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), bitmap);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                 collapsingToolbarLayout.setBackground(bitmapDrawable);
             }
@@ -178,7 +183,7 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
     private void init() {
         //thay the actionbar thanh toolbar
         setSupportActionBar(toolbar);
-        //tao nut home, click vao tro ve trang truoc vaf set lai icon
+        //tao nut home, click vao tro ve trang truoc va set lai icon
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -189,6 +194,7 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
         //khi keo len xuong thi set text lai cho toolbar.
         collapsingToolbarLayout.setExpandedTitleColor(Color.WHITE);
         collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE);
+        floatingActionButton.setEnabled(false);
 
 
     }
@@ -204,21 +210,33 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
 
     private void DataIntent() {
         Intent intent = getIntent();
-        if(intent !=null){
-            if(intent.hasExtra("banner")){
+        if (intent != null) {
+            if (intent.hasExtra("banner")) {
                 quangcao = (Quangcao) intent.getSerializableExtra("banner");
-                Toast.makeText(this,quangcao.getTenBaiHat(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, quangcao.getTenBaiHat(), Toast.LENGTH_SHORT).show();
             }
-            if(intent.hasExtra("itemplaylist")){
+            if (intent.hasExtra("itemplaylist")) {
                 playlist = (Playlist) intent.getSerializableExtra("itemplaylist");
             }
-            if(intent.hasExtra("idtheloai")){
+            if (intent.hasExtra("idtheloai")) {
                 theLoai = (TheLoai) intent.getSerializableExtra("idtheloai");
             }
-            if(intent.hasExtra("album")){
+            if (intent.hasExtra("album")) {
                 album = (Album) intent.getSerializableExtra("album");
 
             }
         }
+    }
+    private void eventClick(){
+        floatingActionButton.setEnabled(true);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DanhsachbaihatActivity.this,PlaynhacActivity.class);
+                // gửi tất cả bài hát trong danh sách qua phần Playnhac
+                intent.putExtra("cacbaihat",mangbaihat);
+                startActivity(intent);
+            }
+        });
     }
 }

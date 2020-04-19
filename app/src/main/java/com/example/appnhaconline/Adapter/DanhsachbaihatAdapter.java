@@ -1,6 +1,7 @@
 package com.example.appnhaconline.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.appnhaconline.Activity.PlaynhacActivity;
 import com.example.appnhaconline.Model.Baihat;
 import com.example.appnhaconline.R;
 import com.example.appnhaconline.Service.APIService;
@@ -88,6 +90,14 @@ public class DanhsachbaihatAdapter extends RecyclerView.Adapter<DanhsachbaihatAd
                     });
                     // Đóng imgluotthich khong cho click lai
                     imgluotthich.setEnabled(false);
+                }
+            });
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, PlaynhacActivity.class);
+                    intent.putExtra("cakhuc",mangbaihat.get(getPosition()));
+                    context.startActivity(intent);
                 }
             });
         }
