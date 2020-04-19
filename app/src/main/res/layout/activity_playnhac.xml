@@ -72,15 +72,16 @@
                 android:scaleType="fitXY"
                 android:background="@null"
                 android:id="@+id/imagebuttonshuffle"
-                android:layout_marginRight="15dp"
-                android:layout_width="50dp"
-                android:layout_height="50dp"/>
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
             <ImageButton
                 android:src="@drawable/iconpreview"
                 android:scaleType="fitXY"
                 android:background="@null"
                 android:id="@+id/imagebuttonpre"
-                android:layout_marginRight="15dp"
+                android:layout_marginRight="10dp"
                 android:layout_width="60dp"
                 android:layout_height="60dp"/>
             <ImageButton
@@ -88,7 +89,7 @@
                 android:scaleType="fitXY"
                 android:background="@null"
                 android:id="@+id/imagebuttonplay"
-                android:layout_marginRight="15dp"
+                android:layout_marginRight="10dp"
                 android:layout_width="70dp"
                 android:layout_height="70dp"/>
             <ImageButton
@@ -96,7 +97,7 @@
                 android:scaleType="fitXY"
                 android:background="@null"
                 android:id="@+id/imagebuttonnext"
-                android:layout_marginRight="15dp"
+                android:layout_marginRight="10dp"
                 android:layout_width="60dp"
                 android:layout_height="60dp"/>
             <ImageButton
@@ -104,9 +105,9 @@
                 android:scaleType="fitXY"
                 android:background="@null"
                 android:id="@+id/imagebuttonrepeat"
-                android:layout_marginRight="15dp"
-                android:layout_width="50dp"
-                android:layout_height="50dp"/>
+                android:layout_marginRight="10dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"/>
 
         </LinearLayout>
 
