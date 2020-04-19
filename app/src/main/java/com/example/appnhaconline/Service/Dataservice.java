@@ -58,4 +58,8 @@ public interface Dataservice {
     @GET("tatcaalbum.php")
     Call<List<Album>> Getdanhsachtatcaalbum();
 
+    @FormUrlEncoded
+    @POST("danhsachbaihat.php")
+    Call<List<Baihat>> GetDanhsachbaihatalbum(@Field("idalbum") String idalbum);
+
 }

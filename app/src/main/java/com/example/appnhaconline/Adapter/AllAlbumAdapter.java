@@ -1,6 +1,7 @@
 package com.example.appnhaconline.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.appnhaconline.Activity.DanhsachbaihatActivity;
 import com.example.appnhaconline.Activity.DanhsachtatcaalbumActivity;
 import com.example.appnhaconline.Model.Album;
 import com.example.appnhaconline.R;
@@ -55,6 +57,14 @@ public class AllAlbumAdapter extends RecyclerView.Adapter<AllAlbumAdapter.ViewHo
             super(itemView);
             imgalllalbum = itemView.findViewById(R.id.imageviewallalbum);
             txttenallalbum = itemView.findViewById(R.id.textviewallalbum);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, DanhsachbaihatActivity.class);
+                    intent.putExtra("album",albumArrayList.get(getPosition()));
+                    context.startActivity(intent);
+                }
+            });
 
         }
     }
