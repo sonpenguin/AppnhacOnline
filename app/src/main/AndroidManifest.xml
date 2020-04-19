@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.DanhsachtheloaitheochudeActivity"></activity>
+        <activity android:name=".Activity.DanhsachtatcaalbumActivity"></activity>
+        <activity android:name=".Activity.DanhsachtheloaitheochudeActivity" />
         <activity android:name=".Activity.DanhsachtatcachudeActivity" />
         <activity android:name=".Activity.DanhsachcacplaylistActivity" />
         <activity android:name=".Activity.DanhsachbaihatActivity" />
