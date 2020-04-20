@@ -13,13 +13,14 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.appnhaconline.R;
+import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Fragment_Dianhac extends Fragment {
     View view;
     CircleImageView circleImageView;
-    ObjectAnimator objectAnimator;
+    public ObjectAnimator objectAnimator;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -30,6 +31,11 @@ public class Fragment_Dianhac extends Fragment {
         objectAnimator.setRepeatCount(ValueAnimator.INFINITE);
         objectAnimator.setRepeatMode(ValueAnimator.RESTART);
         objectAnimator.setInterpolator(new LinearInterpolator());
+        objectAnimator.start();
         return view;
     }
+    public void Playnhac(String hinhanh) {
+        Picasso.with(getActivity()).load(hinhanh).into(circleImageView);
+    }
+
 }
