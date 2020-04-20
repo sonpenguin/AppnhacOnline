@@ -179,7 +179,7 @@ public class PlaynhacActivity extends AppCompatActivity {
                         new PlayMp3().execute(mangbaihat.get(positon).getLinkBaihat());
                         fragment_dianhac.Playnhac(mangbaihat.get(positon).getHinhBaihat());
                         getSupportActionBar().setTitle(mangbaihat.get(positon).getTenBaihat());
-
+                        UpdateTime();
                     }
                 }
                 //Bắt sự kiện sau khi người dùng click nút next hoặc pre thì khóa nút đó 5s rồi mới cho click lại
@@ -224,7 +224,7 @@ public class PlaynhacActivity extends AppCompatActivity {
                         new PlayMp3().execute(mangbaihat.get(positon).getLinkBaihat());
                         fragment_dianhac.Playnhac(mangbaihat.get(positon).getHinhBaihat());
                         getSupportActionBar().setTitle(mangbaihat.get(positon).getTenBaihat());
-
+                        UpdateTime();
                     }
                 }
                 //Bắt sự kiện sau khi người dùng click nút next hoặc pre thì khóa nút đó 5s rồi mới cho click lại
@@ -328,6 +328,7 @@ public class PlaynhacActivity extends AppCompatActivity {
             }
             mediaPlayer.start();
             Timesong();
+            UpdateTime();
         }
     }
 
@@ -337,5 +338,80 @@ public class PlaynhacActivity extends AppCompatActivity {
         txttotaltimesong.setText(simpleDateFormat.format(mediaPlayer.getDuration()));
         //khi keo thoi gian no se cap nhat lai
         sktime.setMax(mediaPlayer.getDuration());
+    }
+    private  void UpdateTime(){
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if(mediaPlayer != null){
+                    sktime.setProgress(mediaPlayer.getCurrentPosition());
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("mm:ss");
+                    txttimesong.setText(simpleDateFormat.format(mediaPlayer.getCurrentPosition()));
+                    handler.postDelayed(this,300);
+                    //Khi phat toi bai cuoi cung
+                    mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mp) {
+                            next = true;
+                            try {
+                                Thread.sleep(1000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+                }
+            }
+        },300);
+        //Tao handler lang nghe khi chuyen bai hat lam gi
+        final Handler handler1 = new Handler();
+        handler1.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if(next == true){
+                    if (positon < (mangbaihat.size())){
+                        imgplay.setImageResource(R.drawable.iconpause);
+                        positon++;
+                        if(repeat == true){
+                            if(positon == 0){
+                                positon = mangbaihat.size();
+                            }
+                            positon -= 1;
+                        }
+                        if(checkrandom == true){
+                            Random random = new Random();
+                            int index = random.nextInt(mangbaihat.size());
+                            if(index == positon){
+                                positon = index -1;
+                            }
+                            positon = index;
+                        }
+                        if(positon > (mangbaihat.size())- 1){
+                            positon = 0;
+                        }
+                        new PlayMp3().execute(mangbaihat.get(positon).getLinkBaihat());
+                        fragment_dianhac.Playnhac(mangbaihat.get(positon).getHinhBaihat());
+                        getSupportActionBar().setTitle(mangbaihat.get(positon).getTenBaihat());
+                    }
+                //Bắt sự kiện sau khi người dùng click nút next hoặc pre thì khóa nút đó 5s rồi mới cho click lại
+                imgpre.setClickable(false);
+                imgnext.setClickable(false);
+                Handler handler1 = new Handler();
+                handler1.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        imgpre.setClickable(true);
+                        imgnext.setClickable(true);
+                    }
+                },5000);
+                next = false;
+                //Xóa đi lắng nghe để tạo ra thread mới
+                handler1.removeCallbacks(this);
+                }else{
+                    handler1.postDelayed(this,1000);
+                }
+            }
+        }, 1000);
     }
 }
