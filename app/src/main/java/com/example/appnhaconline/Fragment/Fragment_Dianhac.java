@@ -27,7 +27,7 @@ public class Fragment_Dianhac extends Fragment {
         view = inflater.inflate(R.layout.fragment_dianhac,container,false);
         circleImageView = view.findViewById(R.id.imageviewcircle);
         objectAnimator = ObjectAnimator.ofFloat(circleImageView,"rotation",0f,360f);
-        objectAnimator.setDuration(100000);
+        objectAnimator.setDuration(20000);
         objectAnimator.setRepeatCount(ValueAnimator.INFINITE);
         objectAnimator.setRepeatMode(ValueAnimator.RESTART);
         objectAnimator.setInterpolator(new LinearInterpolator());
