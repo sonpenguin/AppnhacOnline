@@ -63,19 +63,6 @@ public class PlaynhacActivity extends AppCompatActivity {
         init();
         eventClick();
 
-//        final List<String> list = new ArrayList<>();
-//        list.add("1.0");
-//        list.add("0.5");
-//        list.add("0.8");
-//        list.add("1.1");
-//        list.add("1.3");
-//        list.add("1.5");
-//
-//        final ArrayAdapter<String> adapterspeed = new ArrayAdapter(this, android.R.layout.simple_spinner_item, list);
-//        // Dinh nghia cho spinner kieu single choice
-//        // set Adapter vao thang spinner
-//        adapterspeed.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
-//        spinnerSpeed.setAdapter(adapterspeed);
     }
 
     private void Speed() {
@@ -355,7 +342,7 @@ public class PlaynhacActivity extends AppCompatActivity {
                 mangbaihat.clear();
             }
         });
-        toolbarplaynhac.setTitleTextColor(Color.WHITE);
+        toolbarplaynhac.setTitleTextColor(Color.RED);
         fragment_dianhac = new Fragment_Dianhac();
         fragment_play_danhsachbaihat = new Fragment_Play_Danhsachbaihat();
         adapternhac = new ViewPagerPlaylistnhacAdapter(getSupportFragmentManager());

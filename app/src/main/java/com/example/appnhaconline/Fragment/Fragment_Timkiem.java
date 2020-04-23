@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -38,7 +39,6 @@ public class Fragment_Timkiem extends Fragment {
     RecyclerView recyclerViewsearchbaihat;
     TextView txtkhongcodulieu;
     SearchbaihatAdapter searchbaihatAdapter;
-    ArrayList<Baihat> mangbaihat;
 
     @Nullable
     @Override
@@ -47,7 +47,6 @@ public class Fragment_Timkiem extends Fragment {
         toolbar = view.findViewById(R.id.toolbarsearchbaihat);
         recyclerViewsearchbaihat = view.findViewById(R.id.recyclerviewsearchbaihat);
         txtkhongcodulieu = view.findViewById(R.id.textviewkhongcodulieu);
-         //mangbaihat = new ArrayList<Baihat>();
         //Tao 1 cai activity roi set toolbar vao
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         toolbar.setTitle("Search");
@@ -91,7 +90,8 @@ public class Fragment_Timkiem extends Fragment {
         callback.enqueue(new Callback<List<Baihat>>() {
             @Override
             public void onResponse(Call<List<Baihat>> call, Response<List<Baihat>> response) {
-                 mangbaihat = (ArrayList<Baihat>) response.body();
+                ArrayList<Baihat> mangbaihat = (ArrayList<Baihat>) response.body();
+                Toast.makeText(getContext(), "size"+mangbaihat.size(), Toast.LENGTH_SHORT).show();
                 if (mangbaihat.size() > 0) {
                     searchbaihatAdapter = new SearchbaihatAdapter(getActivity(), mangbaihat);
                     LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());

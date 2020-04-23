@@ -70,5 +70,4 @@ public interface Dataservice {
     @POST("search.php")
     Call<List<Baihat>> GetTimkiembaihat(@Field("tukhoa") String tukhoa);
 
-
 }
