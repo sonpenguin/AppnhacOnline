@@ -2,37 +2,40 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <RelativeLayout
-        android:padding="7dp"
         android:id="@+id/relativealbum"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="10dp">
 
         <TextView
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:textColor="#111111"
             android:id="@+id/textviewtitlealbum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="ALBUM HOT"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:textColor="#111111"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
         <TextView
-            android:textColor="#FFC107"
-            android:textSize="18sp"
-            android:layout_alignParentRight="true"
             android:id="@+id/texviewxemthemalbum"
-            android:text="Xem thêm"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="Xem thêm"
+            android:textColor="#9C27B0"
+            android:textSize="18sp" />
 
     </RelativeLayout>
+
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/relativealbum"
         android:id="@+id/recyclerviewalbum"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativealbum"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
 
     </androidx.recyclerview.widget.RecyclerView>
 

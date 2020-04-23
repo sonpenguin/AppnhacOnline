@@ -19,7 +19,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class AllAlbumAdapter extends RecyclerView.Adapter<AllAlbumAdapter.ViewHolder>{
+public class AllAlbumAdapter extends RecyclerView.Adapter<AllAlbumAdapter.ViewHolder> {
 
     Context context;
     ArrayList<Album> albumArrayList;
@@ -33,7 +33,7 @@ public class AllAlbumAdapter extends RecyclerView.Adapter<AllAlbumAdapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.dong_allalbum,parent,false);
+        View view = inflater.inflate(R.layout.dong_allalbum, parent, false);
         return new ViewHolder(view);
     }
 
@@ -49,10 +49,11 @@ public class AllAlbumAdapter extends RecyclerView.Adapter<AllAlbumAdapter.ViewHo
         return albumArrayList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imgalllalbum;
         TextView txttenallalbum;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imgalllalbum = itemView.findViewById(R.id.imageviewallalbum);
@@ -61,7 +62,7 @@ public class AllAlbumAdapter extends RecyclerView.Adapter<AllAlbumAdapter.ViewHo
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(context, DanhsachbaihatActivity.class);
-                    intent.putExtra("album",albumArrayList.get(getPosition()));
+                    intent.putExtra("album", albumArrayList.get(getPosition()));
                     context.startActivity(intent);
                 }
             });

@@ -46,8 +46,8 @@ public class DanhsachtheloaitheochudeActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<TheLoai>> call, Response<List<TheLoai>> response) {
                 ArrayList<TheLoai> mangtheloai = (ArrayList<TheLoai>) response.body();
-                danhsachtheloaitheochudeAdapter = new DanhsachtheloaitheochudeAdapter(DanhsachtheloaitheochudeActivity.this,mangtheloai);
-                recyclerViewtheloaitheochude.setLayoutManager(new GridLayoutManager(DanhsachtheloaitheochudeActivity.this,2));
+                danhsachtheloaitheochudeAdapter = new DanhsachtheloaitheochudeAdapter(DanhsachtheloaitheochudeActivity.this, mangtheloai);
+                recyclerViewtheloaitheochude.setLayoutManager(new GridLayoutManager(DanhsachtheloaitheochudeActivity.this, 2));
                 recyclerViewtheloaitheochude.setAdapter(danhsachtheloaitheochudeAdapter);
 
             }

@@ -15,7 +15,7 @@ import com.example.appnhaconline.R;
 
 import java.util.ArrayList;
 
-public class PlaynhacAdapter extends RecyclerView.Adapter<PlaynhacAdapter.ViewHolder>{
+public class PlaynhacAdapter extends RecyclerView.Adapter<PlaynhacAdapter.ViewHolder> {
 
     Context context;
     ArrayList<Baihat> mangbaihat;
@@ -30,7 +30,7 @@ public class PlaynhacAdapter extends RecyclerView.Adapter<PlaynhacAdapter.ViewHo
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //Gan layout cho item
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.dong_playbaihat,parent,false);
+        View view = inflater.inflate(R.layout.dong_playbaihat, parent, false);
         return new ViewHolder(view);
     }
 
@@ -38,7 +38,7 @@ public class PlaynhacAdapter extends RecyclerView.Adapter<PlaynhacAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Baihat baihat = mangbaihat.get(position);
         holder.txtcasi.setText(baihat.getCaSi());
-        holder.txtindex.setText(position +1+""+".");
+        holder.txtindex.setText(position + 1 + "" + ".");
         holder.txttenbaihat.setText(baihat.getTenBaihat());
 
     }
@@ -49,9 +49,10 @@ public class PlaynhacAdapter extends RecyclerView.Adapter<PlaynhacAdapter.ViewHo
     }
 
     // Lay gia tri trong viewholder gan cho view o ben trong
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView txtindex, txttenbaihat,txtcasi;
+        TextView txtindex, txttenbaihat, txtcasi;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtcasi = itemView.findViewById(R.id.textviewplaynhactencasi);

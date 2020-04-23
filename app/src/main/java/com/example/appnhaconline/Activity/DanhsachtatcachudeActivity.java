@@ -35,14 +35,14 @@ public class DanhsachtatcachudeActivity extends AppCompatActivity {
     }
 
     private void GetData() {
-        Dataservice dataservice= APIService.getService();
+        Dataservice dataservice = APIService.getService();
         Call<List<ChuDe>> callback = dataservice.GetAllchude();
         callback.enqueue(new Callback<List<ChuDe>>() {
             @Override
             public void onResponse(Call<List<ChuDe>> call, Response<List<ChuDe>> response) {
                 ArrayList<ChuDe> mangchude = (ArrayList<ChuDe>) response.body();
-                danhsachtatcachudeAdapter = new DanhsachtatcachudeAdapter(DanhsachtatcachudeActivity.this,mangchude);
-                recyclerViewtatcachude.setLayoutManager(new GridLayoutManager(DanhsachtatcachudeActivity.this,1));
+                danhsachtatcachudeAdapter = new DanhsachtatcachudeAdapter(DanhsachtatcachudeActivity.this, mangchude);
+                recyclerViewtatcachude.setLayoutManager(new GridLayoutManager(DanhsachtatcachudeActivity.this, 1));
                 recyclerViewtatcachude.setAdapter(danhsachtatcachudeAdapter);
             }
 

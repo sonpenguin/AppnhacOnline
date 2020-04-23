@@ -11,6 +11,7 @@ public class MainViewPagerAdapter extends FragmentPagerAdapter {
     //mảng chứa các fragment và mảng chứa tên tab
     private ArrayList<Fragment> arrayFragment = new ArrayList<>();
     private ArrayList<String> arraytitle = new ArrayList<>();
+
     public MainViewPagerAdapter(FragmentManager fm) {
         super(fm);
     }
@@ -26,7 +27,7 @@ public class MainViewPagerAdapter extends FragmentPagerAdapter {
         return arrayFragment.size();
     }
 
-    public void addFragment(Fragment fragment, String title){
+    public void addFragment(Fragment fragment, String title) {
         arrayFragment.add(fragment);
         arraytitle.add(title);
     }

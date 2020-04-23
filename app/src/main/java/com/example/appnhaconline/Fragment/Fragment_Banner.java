@@ -34,10 +34,11 @@ public class Fragment_Banner extends Fragment {
     Runnable runnable;
     Handler handler;
     int currentItem;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_banner,container,false);
+        view = inflater.inflate(R.layout.fragment_banner, container, false);
         GetData();
         anhxa();
         return view;
@@ -55,7 +56,7 @@ public class Fragment_Banner extends Fragment {
             @Override
             public void onResponse(Call<List<Quangcao>> call, Response<List<Quangcao>> response) {
                 ArrayList<Quangcao> banners = (ArrayList<Quangcao>) response.body();
-                bannerAdapter = new BannerAdapter(getActivity(),banners);
+                bannerAdapter = new BannerAdapter(getActivity(), banners);
                 viewPager.setAdapter(bannerAdapter);
                 circleIndicator.setViewPager(viewPager);
                 handler = new Handler();
@@ -64,14 +65,14 @@ public class Fragment_Banner extends Fragment {
                     public void run() {
                         currentItem = viewPager.getCurrentItem();
                         currentItem++;
-                        if(currentItem >= viewPager.getAdapter().getCount()){
-                            currentItem =0;
+                        if (currentItem >= viewPager.getAdapter().getCount()) {
+                            currentItem = 0;
                         }
-                        viewPager.setCurrentItem(currentItem,true);
-                        handler.postDelayed(runnable,4500);
+                        viewPager.setCurrentItem(currentItem, true);
+                        handler.postDelayed(runnable, 4500);
                     }
                 };
-                handler.postDelayed(runnable,4500);
+                handler.postDelayed(runnable, 4500);
 
             }
 

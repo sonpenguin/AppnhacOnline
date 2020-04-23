@@ -4,46 +4,51 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/imageviewbaihathot"
+        android:id="@+id/imageviewsearchbaihat"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_margin="3dp"
+        android:layout_margin="4dp"
         android:scaleType="fitXY" />
 
     <TextView
-        android:id="@+id/textviewtenbaihathot"
+        android:id="@+id/textviewsearchtenbaihat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="7dp"
-        android:layout_toRightOf="@id/imageviewbaihathot"
+        android:layout_marginTop="4dp"
+        android:layout_toRightOf="@id/imageviewsearchbaihat"
         android:ellipsize="end"
+        android:maxWidth="250dp"
         android:maxLines="1"
-        android:text="Tên bài hát"
+        android:padding="9dp"
+        android:singleLine="true"
+        android:text="Ten bai hat"
         android:textColor="#111111"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/textviewtencasibaihathot"
+        android:id="@+id/textviewsearchcasi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textviewtenbaihathot"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="7dp"
-        android:layout_toRightOf="@id/imageviewbaihathot"
+        android:layout_below="@id/textviewsearchtenbaihat"
+        android:layout_marginBottom="2dp"
+        android:layout_toRightOf="@id/imageviewsearchbaihat"
+        android:ellipsize="end"
+        android:maxWidth="250dp"
+        android:maxLines="1"
+        android:padding="9dp"
         android:singleLine="true"
-        android:text="Ca Sĩ"
+        android:text="Ca si"
         android:textColor="#3C3434"
         android:textSize="15sp"
         android:textStyle="italic" />
 
     <ImageView
-        android:id="@+id/imageviewluotthich"
+        android:id="@+id/imageviewsearchluotthich"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_margin="10dp"
+        android:layout_marginRight="10dp"
         android:src="@drawable/iconlove" />
 
 </RelativeLayout>

@@ -26,6 +26,7 @@ public class DanhsachtatcaalbumActivity extends AppCompatActivity {
     RecyclerView recyclerViewtatcaalbum;
     Toolbar toolbaralbum;
     AllAlbumAdapter allAlbumAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,8 +42,8 @@ public class DanhsachtatcaalbumActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Album>> call, Response<List<Album>> response) {
                 ArrayList<Album> mangalbum = (ArrayList<Album>) response.body();
-                allAlbumAdapter = new AllAlbumAdapter(DanhsachtatcaalbumActivity.this,mangalbum);
-                recyclerViewtatcaalbum.setLayoutManager(new GridLayoutManager(DanhsachtatcaalbumActivity.this,2));
+                allAlbumAdapter = new AllAlbumAdapter(DanhsachtatcaalbumActivity.this, mangalbum);
+                recyclerViewtatcaalbum.setLayoutManager(new GridLayoutManager(DanhsachtatcaalbumActivity.this, 2));
                 recyclerViewtatcaalbum.setAdapter(allAlbumAdapter);
             }
 

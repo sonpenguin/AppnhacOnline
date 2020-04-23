@@ -230,14 +230,15 @@ public class DanhsachbaihatActivity extends AppCompatActivity {
             }
         }
     }
-    private void eventClick(){
+
+    private void eventClick() {
         floatingActionButton.setEnabled(true);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DanhsachbaihatActivity.this,PlaynhacActivity.class);
+                Intent intent = new Intent(DanhsachbaihatActivity.this, PlaynhacActivity.class);
                 // gửi tất cả bài hát trong danh sách qua phần Playnhac
-                intent.putExtra("cacbaihat",mangbaihat);
+                intent.putExtra("cacbaihat", mangbaihat);
                 startActivity(intent);
             }
         });

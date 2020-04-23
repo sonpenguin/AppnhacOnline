@@ -19,13 +19,14 @@ public class Fragment_Play_Danhsachbaihat extends Fragment {
     View view;
     RecyclerView recyclerViewplaynhac;
     PlaynhacAdapter playnhacAdapter;
+
     @Nullable
     @Override
     //Tao ham oncreateview de gan layout vao
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_play_danhsachbaihat,container,false);
+        view = inflater.inflate(R.layout.fragment_play_danhsachbaihat, container, false);
         recyclerViewplaynhac = view.findViewById(R.id.recyclerviewplaybaihat);
-        if(PlaynhacActivity.mangbaihat.size() > 0){
+        if (PlaynhacActivity.mangbaihat.size() > 0) {
             playnhacAdapter = new PlaynhacAdapter(getActivity(), PlaynhacActivity.mangbaihat);
             recyclerViewplaynhac.setLayoutManager(new LinearLayoutManager(getActivity()));
             recyclerViewplaynhac.setAdapter(playnhacAdapter);

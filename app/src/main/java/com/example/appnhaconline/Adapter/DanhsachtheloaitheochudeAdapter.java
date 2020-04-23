@@ -31,14 +31,14 @@ public class DanhsachtheloaitheochudeAdapter extends RecyclerView.Adapter<Danhsa
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.dong_theloaitheochude,parent,false);
+        View view = inflater.inflate(R.layout.dong_theloaitheochude, parent, false);
 
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
- TheLoai theLoai = theLoaiArrayList.get(position);
+        TheLoai theLoai = theLoaiArrayList.get(position);
         Picasso.with(context).load(theLoai.getHinhTheloai()).into(holder.imghinhnen);
         holder.txttentheloai.setText(theLoai.getTenTheloai());
     }
@@ -48,9 +48,10 @@ public class DanhsachtheloaitheochudeAdapter extends RecyclerView.Adapter<Danhsa
         return theLoaiArrayList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imghinhnen;
         TextView txttentheloai;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imghinhnen = itemView.findViewById(R.id.imageviewtheloaitheochude);
@@ -59,7 +60,7 @@ public class DanhsachtheloaitheochudeAdapter extends RecyclerView.Adapter<Danhsa
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(context, DanhsachbaihatActivity.class);
-                    intent.putExtra("idtheloai",theLoaiArrayList.get(getPosition()));
+                    intent.putExtra("idtheloai", theLoaiArrayList.get(getPosition()));
                     context.startActivity(intent);
                 }
             });

@@ -15,14 +15,14 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/myTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
         app:tabIndicatorColor="#B21CCC"
+        app:tabIndicatorHeight="2dp"
         app:tabMode="fixed"
         app:tabSelectedTextColor="#B21CCC"
-        app:tabTextColor="#111"
-        app:tabIndicatorHeight="2dp"
-        android:background="@android:color/transparent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        app:tabTextColor="#111">
 
     </com.google.android.material.tabs.TabLayout>
 

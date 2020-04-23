@@ -19,7 +19,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class BannerAdapter extends PagerAdapter  {
+public class BannerAdapter extends PagerAdapter {
     Context context;
     ArrayList<Quangcao> arrayListbanner;
 
@@ -42,7 +42,7 @@ public class BannerAdapter extends PagerAdapter  {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, final int position) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.dong_banner,null);
+        View view = inflater.inflate(R.layout.dong_banner, null);
 
         ImageView imgbackgroundbanner = view.findViewById(R.id.imageviewbackgoundbanner);
         ImageView imgsongbanner = view.findViewById(R.id.imageviewbanner);
@@ -58,7 +58,7 @@ public class BannerAdapter extends PagerAdapter  {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, DanhsachbaihatActivity.class);
-                intent.putExtra("banner",arrayListbanner.get(position));
+                intent.putExtra("banner", arrayListbanner.get(position));
                 context.startActivity(intent);
             }
         });

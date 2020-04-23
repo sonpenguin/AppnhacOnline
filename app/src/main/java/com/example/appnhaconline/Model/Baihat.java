@@ -10,24 +10,24 @@ import java.io.Serializable;
 
 public class Baihat implements Parcelable {
 
-@SerializedName("Idbaihat")
-@Expose
-private String idbaihat;
-@SerializedName("TenBaihat")
-@Expose
-private String tenBaihat;
-@SerializedName("HinhBaihat")
-@Expose
-private String hinhBaihat;
-@SerializedName("CaSi")
-@Expose
-private String caSi;
-@SerializedName("LinkBaihat")
-@Expose
-private String linkBaihat;
-@SerializedName("Luotthich")
-@Expose
-private String luotthich;
+    @SerializedName("Idbaihat")
+    @Expose
+    private String idbaihat;
+    @SerializedName("TenBaihat")
+    @Expose
+    private String tenBaihat;
+    @SerializedName("HinhBaihat")
+    @Expose
+    private String hinhBaihat;
+    @SerializedName("CaSi")
+    @Expose
+    private String caSi;
+    @SerializedName("LinkBaihat")
+    @Expose
+    private String linkBaihat;
+    @SerializedName("Luotthich")
+    @Expose
+    private String luotthich;
 
     protected Baihat(Parcel in) {
         idbaihat = in.readString();
@@ -51,52 +51,52 @@ private String luotthich;
     };
 
     public String getIdbaihat() {
-return idbaihat;
-}
+        return idbaihat;
+    }
 
-public void setIdbaihat(String idbaihat) {
-this.idbaihat = idbaihat;
-}
+    public void setIdbaihat(String idbaihat) {
+        this.idbaihat = idbaihat;
+    }
 
-public String getTenBaihat() {
-return tenBaihat;
-}
+    public String getTenBaihat() {
+        return tenBaihat;
+    }
 
-public void setTenBaihat(String tenBaihat) {
-this.tenBaihat = tenBaihat;
-}
+    public void setTenBaihat(String tenBaihat) {
+        this.tenBaihat = tenBaihat;
+    }
 
-public String getHinhBaihat() {
-return hinhBaihat;
-}
+    public String getHinhBaihat() {
+        return hinhBaihat;
+    }
 
-public void setHinhBaihat(String hinhBaihat) {
-this.hinhBaihat = hinhBaihat;
-}
+    public void setHinhBaihat(String hinhBaihat) {
+        this.hinhBaihat = hinhBaihat;
+    }
 
-public String getCaSi() {
-return caSi;
-}
+    public String getCaSi() {
+        return caSi;
+    }
 
-public void setCaSi(String caSi) {
-this.caSi = caSi;
-}
+    public void setCaSi(String caSi) {
+        this.caSi = caSi;
+    }
 
-public String getLinkBaihat() {
-return linkBaihat;
-}
+    public String getLinkBaihat() {
+        return linkBaihat;
+    }
 
-public void setLinkBaihat(String linkBaihat) {
-this.linkBaihat = linkBaihat;
-}
+    public void setLinkBaihat(String linkBaihat) {
+        this.linkBaihat = linkBaihat;
+    }
 
-public String getLuotthich() {
-return luotthich;
-}
+    public String getLuotthich() {
+        return luotthich;
+    }
 
-public void setLuotthich(String luotthich) {
-this.luotthich = luotthich;
-}
+    public void setLuotthich(String luotthich) {
+        this.luotthich = luotthich;
+    }
 
     @Override
     public int describeContents() {

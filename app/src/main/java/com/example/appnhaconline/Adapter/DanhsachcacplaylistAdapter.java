@@ -33,7 +33,7 @@ public class DanhsachcacplaylistAdapter extends RecyclerView.Adapter<Danhsachcac
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.dong_danhsachcacplaylist,parent,false);
+        View view = inflater.inflate(R.layout.dong_danhsachcacplaylist, parent, false);
         return new ViewHolder(view);
 
     }
@@ -50,10 +50,11 @@ public class DanhsachcacplaylistAdapter extends RecyclerView.Adapter<Danhsachcac
         return mangplaylist.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imghinhnen;
         TextView txttenplaylist;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imghinhnen = itemView.findViewById(R.id.imageviewdanhsachcacplaylist);
@@ -63,7 +64,7 @@ public class DanhsachcacplaylistAdapter extends RecyclerView.Adapter<Danhsachcac
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(context, DanhsachbaihatActivity.class);
-                    intent.putExtra("itemplaylist",mangplaylist.get(getPosition()));
+                    intent.putExtra("itemplaylist", mangplaylist.get(getPosition()));
                     context.startActivity(intent);
                 }
             });

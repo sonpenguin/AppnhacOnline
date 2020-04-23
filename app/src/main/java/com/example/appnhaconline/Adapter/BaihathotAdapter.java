@@ -38,15 +38,15 @@ public class BaihathotAdapter extends RecyclerView.Adapter<BaihathotAdapter.View
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.dong_baihathot,parent,false);
+        View view = inflater.inflate(R.layout.dong_baihathot, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-    Baihat baihat = baihatArrayList.get(position);
-    holder.txtcasi.setText(baihat.getCaSi());
-    holder.txtten.setText(baihat.getTenBaihat());
+        Baihat baihat = baihatArrayList.get(position);
+        holder.txtcasi.setText(baihat.getCaSi());
+        holder.txtten.setText(baihat.getTenBaihat());
         Picasso.with(context).load(baihat.getHinhBaihat()).into(holder.imghinh);
     }
 
@@ -55,9 +55,10 @@ public class BaihathotAdapter extends RecyclerView.Adapter<BaihathotAdapter.View
         return baihatArrayList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
         TextView txtten, txtcasi;
         ImageView imghinh, imgluotthich;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtten = itemView.findViewById(R.id.textviewtenbaihathot);
@@ -68,7 +69,7 @@ public class BaihathotAdapter extends RecyclerView.Adapter<BaihathotAdapter.View
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(context, PlaynhacActivity.class);
-                    intent.putExtra("cakhuc",baihatArrayList.get(getPosition()));
+                    intent.putExtra("cakhuc", baihatArrayList.get(getPosition()));
                     context.startActivity(intent);
                 }
             });
@@ -78,14 +79,14 @@ public class BaihathotAdapter extends RecyclerView.Adapter<BaihathotAdapter.View
                     imgluotthich.setImageResource(R.drawable.iconloved);
                     Dataservice dataservice = APIService.getService();
                     //Lay vi tri id bai hat trong server chu khong phai vi tri hien thi trong recyclerview
-                    Call<String> callback = dataservice.UpdateLuotThich("1",baihatArrayList.get(getPosition()).getIdbaihat());
+                    Call<String> callback = dataservice.UpdateLuotThich("1", baihatArrayList.get(getPosition()).getIdbaihat());
                     callback.enqueue(new Callback<String>() {
                         @Override
                         public void onResponse(Call<String> call, Response<String> response) {
                             String ketqua = response.body();
-                            if(ketqua.equals("Thanh cong")){
+                            if (ketqua.equals("Thanh cong")) {
                                 Toast.makeText(context, "Đã thích", Toast.LENGTH_SHORT).show();
-                            }else{
+                            } else {
                                 Toast.makeText(context, "Lỗi", Toast.LENGTH_SHORT).show();
                             }
                         }

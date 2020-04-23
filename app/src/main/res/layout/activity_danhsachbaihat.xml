@@ -2,70 +2,74 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:id="@+id/coordinatorlayout"
     tools:context=".Activity.DanhsachbaihatActivity">
+
     <com.google.android.material.appbar.AppBarLayout
-        android:fitsSystemWindows="true"
         android:id="@+id/appbarlayout"
         android:layout_width="match_parent"
-        android:layout_height="300dp">
+        android:layout_height="300dp"
+        android:fitsSystemWindows="true">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsingtoolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/collapsingtoolbar"
-            app:expandedTitleGravity="center|bottom"
-            app:expandedTitleMarginBottom="33dp"
             android:background="@mipmap/ic_launcher"
             android:fitsSystemWindows="true"
+            app:expandedTitleGravity="center|bottom"
+            app:expandedTitleMarginBottom="33dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
             <View
-                android:background="@drawable/custom_background_banner"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:background="@drawable/custom_background_banner" />
+
             <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbardanhsach"
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:elevation="2dp"
-                android:id="@+id/toolbardanhsach"
                 app:layout_collapseMode="pin"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
-            </androidx.appcompat.widget.Toolbar>
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"></androidx.appcompat.widget.Toolbar>
+
             <ImageView
-                android:elevation="2dp"
-                android:layout_marginTop="38dp"
-                android:src="@mipmap/ic_launcher"
-                android:layout_marginBottom="50dp"
-                android:layout_gravity="center"
                 android:id="@+id/imageviedanhsachcakhuc"
                 android:layout_width="200dp"
-                android:layout_height="200dp"/>
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="38dp"
+                android:layout_marginBottom="50dp"
+                android:elevation="2dp"
+                android:src="@mipmap/ic_launcher" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingactionbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_behavior="@string/bottom_sheet_behavior"
-        app:layout_anchor="@id/appbarlayout"
-        app:layout_anchorGravity="bottom|center"
-        android:id="@+id/floatingactionbutton"
-        app:fabSize="normal"
+        android:backgroundTint="#AA19C3"
         android:scaleType="fitXY"
         android:src="@drawable/iconfloatingactionbutton"
-        android:backgroundTint="#AA19C3">
+        app:fabSize="normal"
+        app:layout_anchor="@id/appbarlayout"
+        app:layout_anchorGravity="bottom|center"
+        app:layout_behavior="@string/bottom_sheet_behavior">
 
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
     <androidx.core.widget.NestedScrollView
-        android:layout_marginTop="30dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="30dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerviewdanhsachbaihat"
             android:layout_width="match_parent"

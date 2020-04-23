@@ -1,5 +1,6 @@
 package com.example.appnhaconline.Activity;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
@@ -15,8 +16,11 @@ import android.os.Handler;
 import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,14 +33,16 @@ import com.example.appnhaconline.R;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class PlaynhacActivity extends AppCompatActivity {
     Toolbar toolbarplaynhac;
     TextView txttimesong, txttotaltimesong;
     SeekBar sktime;
-    ImageButton imgplay, imgrepeat, imgnext,imgpre,imgrandom;
+    ImageButton imgplay, imgrepeat, imgnext, imgpre, imgrandom;
     ViewPager viewPagerplaynhac;
+    Spinner spinnerSpeed;
     public static ArrayList<Baihat> mangbaihat = new ArrayList<>();
     public static ViewPagerPlaylistnhacAdapter adapternhac;
     Fragment_Dianhac fragment_dianhac;
@@ -45,7 +51,7 @@ public class PlaynhacActivity extends AppCompatActivity {
     int positon = 0;
     boolean repeat = false;
     boolean checkrandom = false;
-    boolean  next = false;
+    boolean next = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,38 +63,101 @@ public class PlaynhacActivity extends AppCompatActivity {
         init();
         eventClick();
 
+//        final List<String> list = new ArrayList<>();
+//        list.add("1.0");
+//        list.add("0.5");
+//        list.add("0.8");
+//        list.add("1.1");
+//        list.add("1.3");
+//        list.add("1.5");
+//
+//        final ArrayAdapter<String> adapterspeed = new ArrayAdapter(this, android.R.layout.simple_spinner_item, list);
+//        // Dinh nghia cho spinner kieu single choice
+//        // set Adapter vao thang spinner
+//        adapterspeed.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
+//        spinnerSpeed.setAdapter(adapterspeed);
+    }
+
+    private void Speed() {
+
+        spinnerSpeed.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @RequiresApi(api = Build.VERSION_CODES.M)
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                if (i == 0) {
+                    mediaPlayer.setPlaybackParams(mediaPlayer.getPlaybackParams().setSpeed(1.0f));
+                }
+                if (i == 1) {
+                    mediaPlayer.setPlaybackParams(mediaPlayer.getPlaybackParams().setSpeed(0.5f));
+                }
+                if (i == 2) {
+                    mediaPlayer.setPlaybackParams(mediaPlayer.getPlaybackParams().setSpeed(0.8f));
+                }
+                if (i == 3) {
+                    mediaPlayer.setPlaybackParams(mediaPlayer.getPlaybackParams().setSpeed(1.1f));
+                }
+                if (i == 4) {
+                    mediaPlayer.setPlaybackParams(mediaPlayer.getPlaybackParams().setSpeed(1.3f));
+                }
+                if (i == 5) {
+                    mediaPlayer.setPlaybackParams(mediaPlayer.getPlaybackParams().setSpeed(1.5f));
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
     private void eventClick() {
+        final List<String> list = new ArrayList<>();
+        list.add("1.0");
+        list.add("0.5");
+        list.add("0.8");
+        list.add("1.1");
+        list.add("1.3");
+        list.add("1.5");
+
+        final ArrayAdapter<String> adapterspeed = new ArrayAdapter(this, android.R.layout.simple_spinner_item, list);
+        // Dinh nghia cho spinner kieu single choice
+        // set Adapter vao thang spinner
+        adapterspeed.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
+        spinnerSpeed.setAdapter(adapterspeed);
+
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-               if(adapternhac.getItem(1) != null){
-                   if(mangbaihat.size() > 0){
-                       fragment_dianhac.Playnhac(mangbaihat.get(0).getHinhBaihat());
-                       handler.removeCallbacks(this);
-                   }else{
-                       handler.postDelayed(this, 300);
-                   }
-               }
+                if (adapternhac.getItem(1) != null) {
+                    if (mangbaihat.size() > 0) {
+                        fragment_dianhac.Playnhac(mangbaihat.get(0).getHinhBaihat());
+                        handler.removeCallbacks(this);
+                    } else {
+                        handler.postDelayed(this, 300);
+                    }
+                }
             }
-        },500);
+        }, 500);
         imgplay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mediaPlayer.isPlaying()){
+                if (mediaPlayer.isPlaying()) {
                     mediaPlayer.pause();
                     imgplay.setImageResource(R.drawable.iconplay);
-                    if (fragment_dianhac.objectAnimator!=null){
+                    if (fragment_dianhac.objectAnimator != null) {
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                             fragment_dianhac.objectAnimator.pause();
                         }
                     }
-                }else{
+                } else {
                     mediaPlayer.start();
                     imgplay.setImageResource(R.drawable.iconpause);
-                    if (fragment_dianhac.objectAnimator!=null){
+                    if (fragment_dianhac.objectAnimator != null) {
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                             fragment_dianhac.objectAnimator.resume();
                         }
@@ -99,15 +168,15 @@ public class PlaynhacActivity extends AppCompatActivity {
         imgrepeat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(repeat == false){
-                    if(checkrandom == true){
+                if (repeat == false) {
+                    if (checkrandom == true) {
                         checkrandom = false;
                         imgrepeat.setImageResource(R.drawable.iconsyned);
                         imgrandom.setImageResource(R.drawable.iconshuffled);
                     }
                     imgrepeat.setImageResource(R.drawable.iconsyned);
                     repeat = true;
-                }else{
+                } else {
                     imgrepeat.setImageResource(R.drawable.iconrepeat);
                     repeat = false;
                 }
@@ -116,15 +185,15 @@ public class PlaynhacActivity extends AppCompatActivity {
         imgrandom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(checkrandom == false){
-                    if(repeat == true){
+                if (checkrandom == false) {
+                    if (repeat == true) {
                         repeat = false;
                         imgrandom.setImageResource(R.drawable.iconshuffled);
                         imgrepeat.setImageResource(R.drawable.iconrepeat);
                     }
                     imgrandom.setImageResource(R.drawable.iconshuffled);
                     checkrandom = true;
-                }else{
+                } else {
                     imgrandom.setImageResource(R.drawable.iconshuffle);
                     checkrandom = false;
                 }
@@ -150,35 +219,36 @@ public class PlaynhacActivity extends AppCompatActivity {
         imgnext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mangbaihat.size() > 0){
-                    if(mediaPlayer.isPlaying() || mediaPlayer != null){
+                if (mangbaihat.size() > 0) {
+                    if (mediaPlayer.isPlaying() || mediaPlayer != null) {
                         mediaPlayer.stop();
                         mediaPlayer.release();
                         mediaPlayer = null;
                     }
-                    if (positon < (mangbaihat.size())){
+                    if (positon < (mangbaihat.size())) {
                         imgplay.setImageResource(R.drawable.iconpause);
                         positon++;
-                        if(repeat == true){
-                            if(positon == 0){
+                        if (repeat == true) {
+                            if (positon == 0) {
                                 positon = mangbaihat.size();
                             }
                             positon -= 1;
                         }
-                        if(checkrandom == true){
+                        if (checkrandom == true) {
                             Random random = new Random();
                             int index = random.nextInt(mangbaihat.size());
-                            if(index == positon){
-                                positon = index -1;
+                            if (index == positon) {
+                                positon = index - 1;
                             }
                             positon = index;
                         }
-                        if(positon > (mangbaihat.size())- 1){
+                        if (positon > (mangbaihat.size()) - 1) {
                             positon = 0;
                         }
                         new PlayMp3().execute(mangbaihat.get(positon).getLinkBaihat());
                         fragment_dianhac.Playnhac(mangbaihat.get(positon).getHinhBaihat());
                         getSupportActionBar().setTitle(mangbaihat.get(positon).getTenBaihat());
+                        spinnerSpeed.setAdapter(adapterspeed);
                         UpdateTime();
                     }
                 }
@@ -192,38 +262,39 @@ public class PlaynhacActivity extends AppCompatActivity {
                         imgpre.setClickable(true);
                         imgnext.setClickable(true);
                     }
-                },5000);
+                }, 5000);
             }
         });
         imgpre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mangbaihat.size() > 0){
-                    if(mediaPlayer.isPlaying() || mediaPlayer != null){
+                if (mangbaihat.size() > 0) {
+                    if (mediaPlayer.isPlaying() || mediaPlayer != null) {
                         mediaPlayer.stop();
                         mediaPlayer.release();
                         mediaPlayer = null;
                     }
-                    if (positon < (mangbaihat.size())){
+                    if (positon < (mangbaihat.size())) {
                         imgplay.setImageResource(R.drawable.iconpause);
                         positon--;
-                        if(positon < 0){
-                            positon = mangbaihat.size() -1;
+                        if (positon < 0) {
+                            positon = mangbaihat.size() - 1;
                         }
-                        if(repeat == true){
+                        if (repeat == true) {
                             positon += 1;
                         }
-                        if(checkrandom == true){
+                        if (checkrandom == true) {
                             Random random = new Random();
                             int index = random.nextInt(mangbaihat.size());
-                            if(index == positon){
-                                positon = index -1;
+                            if (index == positon) {
+                                positon = index - 1;
                             }
                             positon = index;
                         }
                         new PlayMp3().execute(mangbaihat.get(positon).getLinkBaihat());
                         fragment_dianhac.Playnhac(mangbaihat.get(positon).getHinhBaihat());
                         getSupportActionBar().setTitle(mangbaihat.get(positon).getTenBaihat());
+                        spinnerSpeed.setAdapter(adapterspeed);
                         UpdateTime();
                     }
                 }
@@ -237,7 +308,7 @@ public class PlaynhacActivity extends AppCompatActivity {
                         imgpre.setClickable(true);
                         imgnext.setClickable(true);
                     }
-                },5000);
+                }, 5000);
             }
         });
     }
@@ -246,13 +317,13 @@ public class PlaynhacActivity extends AppCompatActivity {
         Intent intent = getIntent();
         //Xóa dữ liệu cũ trước khi intent tránh đè dữ liệu cũ
         mangbaihat.clear();
-        if(intent != null){
-            if(intent.hasExtra("cakhuc")){
+        if (intent != null) {
+            if (intent.hasExtra("cakhuc")) {
                 Baihat baihat = intent.getParcelableExtra("cakhuc");
                 mangbaihat.add(baihat);
 
             }
-            if (intent.hasExtra("cacbaihat")){
+            if (intent.hasExtra("cacbaihat")) {
                 ArrayList<Baihat> baihatArrayList = intent.getParcelableArrayListExtra("cacbaihat");
                 mangbaihat = baihatArrayList;
             }
@@ -271,6 +342,7 @@ public class PlaynhacActivity extends AppCompatActivity {
         imgrandom = findViewById(R.id.imagebuttonshuffle);
         imgrepeat = findViewById(R.id.imagebuttonrepeat);
         viewPagerplaynhac = findViewById(R.id.viewpagerplaynhac);
+        spinnerSpeed = findViewById(R.id.spinnerspeed);
         setSupportActionBar(toolbarplaynhac);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -291,15 +363,16 @@ public class PlaynhacActivity extends AppCompatActivity {
         adapternhac.AddFragment(fragment_dianhac);
         viewPagerplaynhac.setAdapter(adapternhac);
         fragment_dianhac = (Fragment_Dianhac) adapternhac.getItem(1);
-        if(mangbaihat.size() > 0){
+        if (mangbaihat.size() > 0) {
             getSupportActionBar().setTitle(mangbaihat.get(0).getTenBaihat());
             new PlayMp3().execute(mangbaihat.get(0).getLinkBaihat());
             imgplay.setImageResource(R.drawable.iconpause);
+            Speed();
         }
     }
 
     // class de thuc hien thu tu hat 1 ca khuc
-    class PlayMp3 extends AsyncTask<String,Void,String>{
+    class PlayMp3 extends AsyncTask<String, Void, String> {
 
         @Override
         protected String doInBackground(String... strings) {
@@ -311,18 +384,18 @@ public class PlaynhacActivity extends AppCompatActivity {
 
             super.onPostExecute(baihat);
             try {
-            mediaPlayer = new MediaPlayer();
-            // Stream_music: Lay ca khuc online
-            mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mp) {
-                    mediaPlayer.stop();
-                    mediaPlayer.reset();
-                }
-            });
-            mediaPlayer.setDataSource(baihat);
-            mediaPlayer.prepare();
+                mediaPlayer = new MediaPlayer();
+                // Stream_music: Lay ca khuc online
+                mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        mediaPlayer.stop();
+                        mediaPlayer.reset();
+                    }
+                });
+                mediaPlayer.setDataSource(baihat);
+                mediaPlayer.prepare();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -339,16 +412,30 @@ public class PlaynhacActivity extends AppCompatActivity {
         //khi keo thoi gian no se cap nhat lai
         sktime.setMax(mediaPlayer.getDuration());
     }
-    private  void UpdateTime(){
+
+    private void UpdateTime() {
+        final List<String> list = new ArrayList<>();
+        list.add("x1.0");
+        list.add("x0.5");
+        list.add("x0.8");
+        list.add("x1.1");
+        list.add("x1.3");
+        list.add("x1.5");
+
+        final ArrayAdapter<String> adapterspeed1 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, list);
+        // Dinh nghia cho spinner kieu single choice
+        // set Adapter vao thang spinner
+        adapterspeed1.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
+        spinnerSpeed.setAdapter(adapterspeed1);
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                if(mediaPlayer != null){
+                if (mediaPlayer != null) {
                     sktime.setProgress(mediaPlayer.getCurrentPosition());
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("mm:ss");
                     txttimesong.setText(simpleDateFormat.format(mediaPlayer.getCurrentPosition()));
-                    handler.postDelayed(this,300);
+                    handler.postDelayed(this, 300);
                     //Khi phat toi bai cuoi cung
                     mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
@@ -363,53 +450,55 @@ public class PlaynhacActivity extends AppCompatActivity {
                     });
                 }
             }
-        },300);
+        }, 300);
         //Tao handler lang nghe khi chuyen bai hat lam gi
         final Handler handler1 = new Handler();
         handler1.postDelayed(new Runnable() {
             @Override
             public void run() {
-                if(next == true){
-                    if (positon < (mangbaihat.size())){
+                if (next == true) {
+                    if (positon < (mangbaihat.size())) {
                         imgplay.setImageResource(R.drawable.iconpause);
                         positon++;
-                        if(repeat == true){
-                            if(positon == 0){
+                        if (repeat == true) {
+                            if (positon == 0) {
                                 positon = mangbaihat.size();
                             }
                             positon -= 1;
                         }
-                        if(checkrandom == true){
+                        if (checkrandom == true) {
                             Random random = new Random();
                             int index = random.nextInt(mangbaihat.size());
-                            if(index == positon){
-                                positon = index -1;
+                            if (index == positon) {
+                                positon = index - 1;
                             }
                             positon = index;
                         }
-                        if(positon > (mangbaihat.size())- 1){
+                        if (positon > (mangbaihat.size()) - 1) {
                             positon = 0;
                         }
                         new PlayMp3().execute(mangbaihat.get(positon).getLinkBaihat());
                         fragment_dianhac.Playnhac(mangbaihat.get(positon).getHinhBaihat());
                         getSupportActionBar().setTitle(mangbaihat.get(positon).getTenBaihat());
+                        spinnerSpeed.setAdapter(adapterspeed1);
+
                     }
-                //Bắt sự kiện sau khi người dùng click nút next hoặc pre thì khóa nút đó 5s rồi mới cho click lại
-                imgpre.setClickable(false);
-                imgnext.setClickable(false);
-                Handler handler1 = new Handler();
-                handler1.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        imgpre.setClickable(true);
-                        imgnext.setClickable(true);
-                    }
-                },5000);
-                next = false;
-                //Xóa đi lắng nghe để tạo ra thread mới
-                handler1.removeCallbacks(this);
-                }else{
-                    handler1.postDelayed(this,1000);
+                    //Bắt sự kiện sau khi người dùng click nút next hoặc pre thì khóa nút đó 5s rồi mới cho click lại
+                    imgpre.setClickable(false);
+                    imgnext.setClickable(false);
+                    Handler handler1 = new Handler();
+                    handler1.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            imgpre.setClickable(true);
+                            imgnext.setClickable(true);
+                        }
+                    }, 5000);
+                    next = false;
+                    //Xóa đi lắng nghe để tạo ra thread mới
+                    handler1.removeCallbacks(this);
+                } else {
+                    handler1.postDelayed(this, 1000);
                 }
             }
         }, 1000);

@@ -1,53 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
     android:elevation="5dp">
+
     <RelativeLayout
-        android:padding="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="10dp">
 
         <TextView
-            android:textColor="#EC0606"
-            android:layout_margin="15dp"
-            android:textSize="20sp"
-            android:text="1"
             android:id="@+id/textviewdanhsachindex"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="1. "
+            android:textColor="#111111"
+            android:textSize="20sp" />
+
         <TextView
             android:id="@+id/textviewtenbaihat"
-            android:textColor="#020202"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_toRightOf="@id/textviewdanhsachindex"
-            android:singleLine="true"
             android:ellipsize="end"
             android:maxWidth="250dp"
-            android:textSize="20sp"
-            android:text="Banh mi khong"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:textSize="18sp"
-            android:text="Cao Thai Son"
-            android:textColor="#C3C3C1"
             android:singleLine="true"
-            android:ellipsize="end"
-            android:layout_toRightOf="@id/textviewdanhsachindex"
-            android:layout_below="@id/textviewtenbaihat"
+            android:text="Banh mi khong"
+            android:textColor="#111111"
+            android:textSize="20sp" />
+
+        <TextView
             android:id="@+id/textviewtencasi"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textviewtenbaihat"
+            android:layout_toRightOf="@id/textviewdanhsachindex"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="Cao Thai Son"
+            android:textColor="#3C3434"
+            android:textSize="18sp"
+            android:textStyle="italic" />
+
         <ImageView
-            android:src="@drawable/iconlove"
-            android:layout_marginRight="5dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
             android:id="@+id/imageviewluotthichdanhsachbaihat"
             android:layout_width="30dp"
-            android:layout_height="30dp"/>
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/iconlove" />
 
     </RelativeLayout>
 

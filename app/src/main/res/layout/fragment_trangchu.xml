@@ -2,42 +2,42 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scrollbars="none"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:scrollbars="none">
 
     <LinearLayout
-        android:orientation="vertical"
         android:id="@+id/linearlayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <fragment
-            android:name="com.example.appnhaconline.Fragment.Fragment_Banner"
             android:id="@+id/fragment_banner"
+            android:name="com.example.appnhaconline.Fragment.Fragment_Banner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></fragment>
 
         <fragment
-            android:name="com.example.appnhaconline.Fragment.Fragment_Playlist"
             android:id="@+id/fragment_playlist"
+            android:name="com.example.appnhaconline.Fragment.Fragment_Playlist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></fragment>
 
         <fragment
-        android:name="com.example.appnhaconline.Fragment.Fragment_Chude_Theloai"
-        android:id="@+id/fragment_chude_theloai"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"></fragment>
+            android:id="@+id/fragment_chude_theloai"
+            android:name="com.example.appnhaconline.Fragment.Fragment_Chude_Theloai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></fragment>
 
         <fragment
-            android:name="com.example.appnhaconline.Fragment.Fragment_Album"
             android:id="@+id/fragment_album"
+            android:name="com.example.appnhaconline.Fragment.Fragment_Album"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></fragment>
 
         <fragment
-            android:name="com.example.appnhaconline.Fragment.Fragment_Baihathot"
             android:id="@+id/fragment_baihathot"
+            android:name="com.example.appnhaconline.Fragment.Fragment_Baihathot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></fragment>
     </LinearLayout>

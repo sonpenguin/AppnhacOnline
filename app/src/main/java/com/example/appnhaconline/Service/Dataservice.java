@@ -42,7 +42,7 @@ public interface Dataservice {
     Call<List<Baihat>> GetDanhsachbaihatplaylist(@Field("idplaylist") String idplaylist);
 
     @GET("danhsachcacplaylist.php")
-    Call<List<Playlist>>  GetDanhsachcacplaylist();
+    Call<List<Playlist>> GetDanhsachcacplaylist();
 
     @FormUrlEncoded
     @POST("danhsachbaihat.php")
@@ -65,5 +65,10 @@ public interface Dataservice {
     @FormUrlEncoded
     @POST("updateluotthich.php")
     Call<String> UpdateLuotThich(@Field("luotthich") String luotthich, @Field("idbaihat") String idbaihat);
+
+    @FormUrlEncoded
+    @POST("search.php")
+    Call<List<Baihat>> GetTimkiembaihat(@Field("tukhoa") String tukhoa);
+
 
 }

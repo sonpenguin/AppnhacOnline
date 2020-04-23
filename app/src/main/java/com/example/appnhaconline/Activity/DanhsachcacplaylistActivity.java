@@ -42,9 +42,9 @@ public class DanhsachcacplaylistActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Playlist>> call, Response<List<Playlist>> response) {
                 ArrayList<Playlist> mangplaylist = (ArrayList<Playlist>) response.body();
-                danhsachcacplaylistAdapter = new DanhsachcacplaylistAdapter(DanhsachcacplaylistActivity.this,mangplaylist);
+                danhsachcacplaylistAdapter = new DanhsachcacplaylistAdapter(DanhsachcacplaylistActivity.this, mangplaylist);
                 // set đổ danh sách theo 2 cột = Gridlayout
-                recyclerViewdanhsachcacplaylist.setLayoutManager(new GridLayoutManager(DanhsachcacplaylistActivity.this,2));
+                recyclerViewdanhsachcacplaylist.setLayoutManager(new GridLayoutManager(DanhsachcacplaylistActivity.this, 2));
                 recyclerViewdanhsachcacplaylist.setAdapter(danhsachcacplaylistAdapter);
             }
 

@@ -32,7 +32,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.dong_album,parent,false);
+        View view = inflater.inflate(R.layout.dong_album, parent, false);
 
         return new ViewHolder(view);
         //gắn layout
@@ -53,9 +53,10 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
         return mangalbum.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
-    ImageView imghinhalbum;
-    TextView txttenalbum, txttencasi;
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView imghinhalbum;
+        TextView txttenalbum, txttencasi;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imghinhalbum = itemView.findViewById(R.id.imageviewalbum);
@@ -65,7 +66,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(context, DanhsachbaihatActivity.class);
-                    intent.putExtra("album",mangalbum.get(getPosition()));
+                    intent.putExtra("album", mangalbum.get(getPosition()));
                     context.startActivity(intent);
                 }
             });

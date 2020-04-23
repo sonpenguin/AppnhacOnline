@@ -6,8 +6,9 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import java.util.ArrayList;
 
-public class ViewPagerPlaylistnhacAdapter  extends FragmentPagerAdapter {
+public class ViewPagerPlaylistnhacAdapter extends FragmentPagerAdapter {
     public final ArrayList<Fragment> fragmentArrayList = new ArrayList<>();
+
     public ViewPagerPlaylistnhacAdapter(FragmentManager fm) {
         super(fm);
     }
@@ -21,8 +22,9 @@ public class ViewPagerPlaylistnhacAdapter  extends FragmentPagerAdapter {
     public int getCount() {
         return fragmentArrayList.size();
     }
+
     // Tao phuong thuc de add vao fragment
-    public void AddFragment(Fragment fragment){
+    public void AddFragment(Fragment fragment) {
         fragmentArrayList.add(fragment);
     }
 }

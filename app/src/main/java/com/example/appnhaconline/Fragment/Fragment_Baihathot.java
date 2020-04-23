@@ -33,9 +33,9 @@ public class Fragment_Baihathot extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-       view = inflater.inflate(R.layout.fragment_baihathot,container,false);
-       recyclerViewbaihathot = view.findViewById(R.id.recyclerviewbaihathot);
-       GetData();
+        view = inflater.inflate(R.layout.fragment_baihathot, container, false);
+        recyclerViewbaihathot = view.findViewById(R.id.recyclerviewbaihathot);
+        GetData();
         return view;
     }
 
@@ -46,7 +46,7 @@ public class Fragment_Baihathot extends Fragment {
             @Override
             public void onResponse(Call<List<Baihat>> call, Response<List<Baihat>> response) {
                 ArrayList<Baihat> baihatArrayList = (ArrayList<Baihat>) response.body();
-                baihathotAdapter = new BaihathotAdapter(getActivity(),baihatArrayList);
+                baihathotAdapter = new BaihathotAdapter(getActivity(), baihatArrayList);
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
                 linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
                 recyclerViewbaihathot.setLayoutManager(linearLayoutManager);

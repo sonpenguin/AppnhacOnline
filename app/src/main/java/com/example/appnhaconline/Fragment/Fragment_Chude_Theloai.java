@@ -43,7 +43,7 @@ public class Fragment_Chude_Theloai extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_chude_theloai,container,false);
+        view = inflater.inflate(R.layout.fragment_chude_theloai, container, false);
         horizontalScrollView = view.findViewById(R.id.horizontalScrollview);
         txtxemthemchudetheloai = view.findViewById(R.id.textviewxemthemchudetheloai);
         txtxemthemchudetheloai.setOnClickListener(new View.OnClickListener() {
@@ -75,14 +75,14 @@ public class Fragment_Chude_Theloai extends Fragment {
                 linearLayout.setOrientation(LinearLayout.HORIZONTAL);
 
                 //set kich htuoc truoc khi dua vao cardview
-                LinearLayout.LayoutParams layout = new LinearLayout.LayoutParams(580,350);
-                layout.setMargins(10,20,10,30);
-                for(int i =0;i<(chuDeArrayList.size()); i++){
+                LinearLayout.LayoutParams layout = new LinearLayout.LayoutParams(580, 350);
+                layout.setMargins(10, 20, 10, 30);
+                for (int i = 0; i < (chuDeArrayList.size()); i++) {
                     CardView cardView = new CardView(getActivity());
                     cardView.setRadius(10);
                     ImageView imageView = new ImageView(getActivity());
                     imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                    if(chuDeArrayList.get(i).getHinhChude() !=null){
+                    if (chuDeArrayList.get(i).getHinhChude() != null) {
                         Picasso.with(getActivity()).load(chuDeArrayList.get(i).getHinhChude()).into(imageView);
                     }
                     cardView.setLayoutParams(layout);
@@ -93,18 +93,18 @@ public class Fragment_Chude_Theloai extends Fragment {
                         @Override
                         public void onClick(View v) {
                             Intent intent = new Intent(getActivity(), DanhsachtheloaitheochudeActivity.class);
-                            intent.putExtra("chude",chuDeArrayList.get(finalI));
+                            intent.putExtra("chude", chuDeArrayList.get(finalI));
                             startActivity(intent);
                         }
                     });
                 }
 
-                for(int j =0;j<(chuDeArrayList.size()); j++){
+                for (int j = 0; j < (chuDeArrayList.size()); j++) {
                     CardView cardView = new CardView(getActivity());
                     cardView.setRadius(10);
                     ImageView imageView = new ImageView(getActivity());
                     imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                    if(theLoaiArrayList.get(j).getHinhTheloai() !=null){
+                    if (theLoaiArrayList.get(j).getHinhTheloai() != null) {
                         Picasso.with(getActivity()).load(theLoaiArrayList.get(j).getHinhTheloai()).into(imageView);
                     }
                     cardView.setLayoutParams(layout);
@@ -116,7 +116,7 @@ public class Fragment_Chude_Theloai extends Fragment {
                         @Override
                         public void onClick(View v) {
                             Intent intent = new Intent(getActivity(), DanhsachbaihatActivity.class);
-                            intent.putExtra("idtheloai",theLoaiArrayList.get(finalJ));
+                            intent.putExtra("idtheloai", theLoaiArrayList.get(finalJ));
                             startActivity(intent);
                         }
                     });

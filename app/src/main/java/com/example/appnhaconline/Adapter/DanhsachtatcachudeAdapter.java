@@ -30,7 +30,7 @@ public class DanhsachtatcachudeAdapter extends RecyclerView.Adapter<Danhsachtatc
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.dong_tatcachude,parent,false);
+        View view = inflater.inflate(R.layout.dong_tatcachude, parent, false);
         return new ViewHolder(view);
     }
 
@@ -45,8 +45,9 @@ public class DanhsachtatcachudeAdapter extends RecyclerView.Adapter<Danhsachtatc
         return mangchude.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imgchude;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imgchude = itemView.findViewById(R.id.imageviewdongtatcachude);
@@ -54,7 +55,7 @@ public class DanhsachtatcachudeAdapter extends RecyclerView.Adapter<Danhsachtatc
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(context, DanhsachtheloaitheochudeActivity.class);
-                    intent.putExtra("chude",mangchude.get(getPosition()));
+                    intent.putExtra("chude", mangchude.get(getPosition()));
                     context.startActivity(intent);
                 }
             });

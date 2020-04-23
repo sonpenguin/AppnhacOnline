@@ -1,47 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="center"
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
     app:cardCornerRadius="10dp">
+
     <LinearLayout
-        android:orientation="vertical"
         android:id="@+id/linearcardviewalbum"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
         <ImageView
-            android:layout_gravity="center"
-            android:scaleType="fitXY"
             android:id="@+id/imageviewalbum"
             android:layout_width="200dp"
-            android:layout_height="200dp"/>
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:scaleType="fitXY" />
+
         <TextView
-            android:textColor="#111111"
-            android:maxWidth="200dp"
-            android:textSize="20sp"
-            android:text="Bánh mì không (Single)"
-            android:ellipsize="end"
-            android:maxLines="1"
             android:id="@+id/textviewtenalbum"
-            android:layout_marginRight="2dp"
-            android:layout_marginLeft="2dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:ellipsize="end"
+            android:maxWidth="200dp"
+            android:maxLines="1"
+            android:text="Bánh mì không (Single)"
+            android:textColor="#111111"
+            android:textSize="20sp" />
+
         <TextView
+            android:id="@+id/textviewtencasi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:ellipsize="end"
+            android:maxWidth="200dp"
+            android:maxLines="1"
+            android:text="Đạt G"
             android:textColor="#3C3434"
             android:textSize="15sp"
-            android:maxWidth="200dp"
-            android:text="Đạt G"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:id="@+id/textviewtencasi"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:textStyle="italic" />
 
 
     </LinearLayout>

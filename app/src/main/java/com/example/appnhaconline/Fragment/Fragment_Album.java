@@ -37,7 +37,7 @@ public class Fragment_Album extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_album,container,false);
+        view = inflater.inflate(R.layout.fragment_album, container, false);
         recyclerViewalbum = view.findViewById(R.id.recyclerviewalbum);
         txtxemthemalbum = view.findViewById(R.id.texviewxemthemalbum);
         txtxemthemalbum.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +58,7 @@ public class Fragment_Album extends Fragment {
             @Override
             public void onResponse(Call<List<Album>> call, Response<List<Album>> response) {
                 ArrayList<Album> albumArrayList = (ArrayList<Album>) response.body();
-                albumAdapter = new AlbumAdapter(getActivity(),albumArrayList);
+                albumAdapter = new AlbumAdapter(getActivity(), albumArrayList);
                 //set data cho recyclerview
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
                 linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);

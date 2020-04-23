@@ -4,35 +4,35 @@
     android:layout_height="wrap_content">
 
     <RelativeLayout
-        android:padding="7dp"
         android:id="@+id/relativechudetheloai"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="10dp">
 
         <TextView
-            android:textColor="#111111"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:text="CHỦ ĐỀ và THỂ LOẠI"
             android:id="@+id/textviewtitle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="CHỦ ĐỀ và THỂ LOẠI"
+            android:textColor="#111111"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textviewxemthemchudetheloai"
-            android:layout_alignParentRight="true"
-            android:textColor="#913677"
-            android:textSize="18sp"
-            android:text="Xem Thêm"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="Xem thêm"
+            android:textColor="#9C27B0"
+            android:textSize="18sp" />
     </RelativeLayout>
 
     <HorizontalScrollView
-        android:scrollbars="none"
         android:id="@+id/horizontalScrollview"
-        android:layout_below="@+id/relativechudetheloai"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></HorizontalScrollView>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativechudetheloai"
+        android:scrollbars="none"></HorizontalScrollView>
 
 </RelativeLayout>
